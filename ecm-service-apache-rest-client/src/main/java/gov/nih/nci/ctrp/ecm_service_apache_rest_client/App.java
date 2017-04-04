@@ -32,13 +32,14 @@ public class App
             
             while(true){
             	 try { RestClient client = new RestClient();
-                     String response =  client.sendHTTPRequest("http://localhost:3300/api/v1/ecmservice/HealthCareFacility/WA082", "GET", null);
+                     String response =  client.sendHTTPRequest("http://localhost:3300/api/v1/ecmservice/Person/513057", "GET", null);
                      if (response != null) {
-                         CTEPHealthcareFacilityDTO dto = (CTEPHealthcareFacilityDTO) ECMRestClientHelper
-                                 .unmarshallJSON(response, CTEPHealthcareFacilityDTO.class);
+                    	 PersonDTO dto = (PersonDTO) ECMRestClientHelper
+                                 .unmarshallJSON(response, PersonDTO.class);
                          	System.out.println("HealthcareFacility DTO :" + dto);
-                         	printRemoteOrgDataToDebugLog(dto);
-                         	printIdentifierSet(dto, "hcf");
+                         	//printRemoteOrgDataToDebugLog(dto);
+                         	//printIdentifierSet(dto, "hcf");
+                         	printPersonDataToDebugLog(dto);
                      }
             		 
                  } catch (Exception e) {
@@ -156,6 +157,29 @@ public class App
             }
         }
     }
+    
+    private static void printPersonDataToDebugLog(PersonDTO dto) {
+        System.out.println("*** Importing ctep person ***");
+        System.out.println("per.ii.root: " + dto.getIdentifier().getRoot());
+        System.out.println("per.ii.extension: " + dto.getIdentifier().getExtension());
+        System.out.println("per.status: " + dto.getStatusCode().getCode());
+         for (Enxp xp : dto.getName().getPart()) {
+            System.out.println("per.name.value: " + xp.getValue());
+         }
+         for (Adxp adxp : dto.getPostalAddress().getPart()) {
+            System.out.println("per.postalAddress.part.type: " + adxp.getType());
+            System.out.println("per.postalAddress.part.value: " + adxp.getValue());
+            System.out.println("per.postalAddress.part.code: " + adxp.getCode());
+            System.out.println("per.postalAddress.part.code: " + adxp.getCodeSystem());
+         }
+         if (dto.getTelecomAddress() == null) {
+            System.out.println("per.telecomAddress: null");
+         } else {
+             for (Tel tel : dto.getTelecomAddress().getItem()) {
+                System.out.println("per.telecomAddress.item.value: " + tel.getValue());
+             }
+         }
+     }
     
     
     private static OrganizationDTO convertOrganizationDTORemoteToLocal(CTEPOrganizationDTO ecmMsOrganizationDTO) {
