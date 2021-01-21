@@ -24,19 +24,19 @@ jobs:
     - name: AWS SSM Send-Command Temp
   # You may pin to the exact commit or the version.
   # uses: LGB-PUB/aws-ssm-send-command@593e574a8ec5c79515c8e6146449f507bfeafb9e
-  uses: LGB-PUB/aws-ssm-send-command@1.0.2
-  with:
-    # AWS access key id
-    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    # AWS secret access key
-    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    # Where EC2 instance is
-    aws-region: us-east-2
-    # AWS EC2 Instance id or ids
-    instance-ids: ${{ secrets.AWS_DOCFIND_EC2_INSTANCE_ID }}
-    # Bash command you want to execute
-    command: # optional, default is echo $(date) >> logs.txt
-    # Command execution location
-    working-directory: # optional, default is /home/ubuntu
-    # Comment for Send-Command
-    comment: # optional, default is Executed by Github Actions
+      uses: LGB-PUB/aws-ssm-send-command@1.0.2
+      with:
+        # AWS access key id
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # AWS secret access key
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        # Where EC2 instance is
+        aws-region: us-east-2
+        # AWS EC2 Instance id or ids
+        instance-ids: ${{ secrets.AWS_DOCFIND_EC2_INSTANCE_ID }}
+        # Bash command you want to execute
+        command: # optional, default is echo $(date) >> logs.txt
+        # Command execution location
+        working-directory: # optional, default is /home/ubuntu
+        # Comment for Send-Command
+        comment: # optional, default is Executed by Github Actions
