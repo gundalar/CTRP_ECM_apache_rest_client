@@ -27,13 +27,13 @@ jobs:
   uses: LGB-PUB/aws-ssm-send-command@1.0.2
   with:
     # AWS access key id
-    aws-access-key-id: 
+    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
     # AWS secret access key
-    aws-secret-access-key: 
+    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     # Where EC2 instance is
-    aws-region: 
+    aws-region: us-east-2
     # AWS EC2 Instance id or ids
-    instance-ids: 
+    instance-ids: ${{ secrets.AWS_DOCFIND_EC2_INSTANCE_ID }}
     # Bash command you want to execute
     command: # optional, default is echo $(date) >> logs.txt
     # Command execution location
