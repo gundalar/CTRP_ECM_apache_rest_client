@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-18.04
     steps:
     - name: AWS SSM Send-Command Temp
   # You may pin to the exact commit or the version.
