@@ -16,7 +16,7 @@ jobs:
     - name: AWS SSM Send-Command Temp
   # You may pin to the exact commit or the version.
   # uses: LGB-PUB/aws-ssm-send-command@593e574a8ec5c79515c8e6146449f507bfeafb9e
-      uses: LGB-PUB/aws-ssm-send-command@1.0.2
+      run: mkdir test1
       with:
         # AWS access key id
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
