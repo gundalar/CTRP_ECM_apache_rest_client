@@ -33,5 +33,5 @@ jobs:
         # Comment for Send-Command
         comment: Executed by Github Actions
     - name: AWS output date
-      	run: echo $(date) >> logs1.txt
+      run: echo $(date) >> logs1.txt
    
