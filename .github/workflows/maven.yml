@@ -33,4 +33,4 @@ jobs:
         # Comment for Send-Command
         comment: # optional, default is Executed by Github Actions
     - name: AWS output date
-      run: echo $(date) >> logs.txt
+      run: mkdir test
