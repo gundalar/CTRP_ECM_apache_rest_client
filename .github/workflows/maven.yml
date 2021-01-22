@@ -17,7 +17,6 @@ jobs:
   # You may pin to the exact commit or the version.
   # uses: LGB-PUB/aws-ssm-send-command@593e574a8ec5c79515c8e6146449f507bfeafb9e
       uses: LGB-PUB/aws-ssm-send-command@1.0.2
-      run: echo $(date) >> logs.txt
       with:
         # AWS access key id
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -33,3 +32,5 @@ jobs:
         working-directory: # optional, default is /home/ubuntu
         # Comment for Send-Command
         comment: # optional, default is Executed by Github Actions
+    - name: AWS output date
+      run: echo $(date) >> logs.txt
