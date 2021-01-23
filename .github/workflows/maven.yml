@@ -25,7 +25,7 @@ jobs:
         # Where EC2 instance is
         aws-region: us-east-2
         # AWS EC2 Instance id or ids
-        instance-ids: i-07402701776f66832
+        instance-ids: ${{ secrets.AWS_DOCFIND_EC2_INSTANCE_ID }}
         # Bash command you want to execute
         #command: echo $(date) >> logs.txt
         run: ./test.sh
