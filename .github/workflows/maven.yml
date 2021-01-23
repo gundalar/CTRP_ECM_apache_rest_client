@@ -30,7 +30,7 @@ jobs:
         #command: echo $(date) >> logs.txt
         # Command execution location
         working-directory: /home/ubuntu
-        run: sh ./test.sh:  
+        run: sh ./test.sh
         # Comment for Send-Command
         comment: Executed by Github Actions
     - name: AWS output date
