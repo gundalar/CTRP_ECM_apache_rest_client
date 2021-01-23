@@ -27,7 +27,9 @@ jobs:
         # AWS EC2 Instance id or ids
         instance-ids: i-07402701776f66832
         # Bash command you want to execute
-        command: echo $(date) >> logs.txt
+        #command: echo $(date) >> logs.txt
+        run: ./test.sh
+        shell: bash
         # Command execution location
         working-directory: /home/ubuntu
         # Comment for Send-Command
