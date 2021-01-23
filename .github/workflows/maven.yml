@@ -28,10 +28,9 @@ jobs:
         instance-ids: ${{ secrets.AWS_DOCFIND_EC2_INSTANCE_ID }}
         # Bash command you want to execute
         #command: echo $(date) >> logs.txt
-        run: ./test.sh
-        shell: bash
         # Command execution location
         working-directory: /home/ubuntu
+        run: sh ./test.sh:  
         # Comment for Send-Command
         comment: Executed by Github Actions
     - name: AWS output date
